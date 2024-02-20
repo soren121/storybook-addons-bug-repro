@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { action } from "@storybook/addon-actions";
 
 import { Button } from "./Button";
 
@@ -26,6 +27,7 @@ export const Primary: Story = {
   args: {
     primary: true,
     label: "Button",
+    onClick: action("click"),
   },
 };
 

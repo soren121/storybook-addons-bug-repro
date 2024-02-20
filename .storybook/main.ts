@@ -10,14 +10,21 @@ const config: StorybookConfig = {
   ],
   framework: {
     name: "@storybook/react-webpack5",
-    options: {
-      builder: {
-        useSWC: true,
-      },
-    },
+    options: {},
   },
   docs: {
     autodocs: "tag",
+  },
+  webpack(config, options) {
+    config.resolve = {
+      ...config.resolve,
+      fallback: {
+        ...config.resolve?.fallback,
+        os: false,
+        tty: false,
+      },
+    };
+    return config;
   },
 };
 export default config;
